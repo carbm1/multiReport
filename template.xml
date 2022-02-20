@@ -1,0 +1,188 @@
+<report xmlns="http://developer.cognos.com/schemas/report/15.5/" useStyleVersion="11.6" expressionLocale="en">
+    <drillBehavior/>
+    <layouts>
+        <layout>
+            <reportPages>
+                <page name="REG_PAGE">
+                    <pageBody>
+                        <contents>
+                            <list horizontalPagination="true" refQuery="REG_QUERY" name="List1">
+                                <listColumns>
+                                    <listColumn>
+                                        <listColumnTitle>
+                                            <contents>
+                                                <textItem>
+                                                    <dataSource>
+                                                        <dataItemLabel refDataItem="DISTRICT"/>
+                                                    </dataSource>
+                                                </textItem>
+                                            </contents>
+                                        </listColumnTitle>
+                                        <listColumnBody>
+                                            <contents>
+                                                <textItem>
+                                                    <dataSource>
+                                                        <dataItemValue refDataItem="DISTRICT"/>
+                                                    </dataSource>
+                                                </textItem>
+                                            </contents>
+                                        </listColumnBody>
+                                    </listColumn>
+                                </listColumns>
+                            </list>
+                        </contents>
+                    </pageBody>
+                    <conditionalRender refVariable="useTbl">
+                        <renderFor refVariableValue="REG"/>
+                    </conditionalRender>
+                </page>
+            </reportPages>
+        </layout>
+    </layouts>
+
+    <queries>
+        <query name="REG_QUERY">
+            <source>
+                <sqlQuery name="REG_SQL" dataSource="{{ESPDSN}}">
+                    <sqlText>SELECT * FROM REG</sqlText>
+                </sqlQuery>
+            </source>
+            <selection>
+                <dataItem name="DISTRICT">
+                    <expression>[REG_SQL].[DISTRICT]</expression>
+                </dataItem>
+                <dataItem name="STUDENT_ID">
+                    <expression>[REG_SQL].[STUDENT_ID]</expression>
+                </dataItem>
+                <dataItem name="FIRST_NAME">
+                    <expression>[REG_SQL].[FIRST_NAME]</expression>
+                </dataItem>
+                <dataItem name="MIDDLE_NAME">
+                    <expression>[REG_SQL].[MIDDLE_NAME]</expression>
+                </dataItem>
+                <dataItem name="LAST_NAME">
+                    <expression>[REG_SQL].[LAST_NAME]</expression>
+                </dataItem>
+                <dataItem name="GENERATION">
+                    <expression>[REG_SQL].[GENERATION]</expression>
+                </dataItem>
+                <dataItem name="BUILDING">
+                    <expression>[REG_SQL].[BUILDING]</expression>
+                </dataItem>
+                <dataItem name="HOME_BUILDING">
+                    <expression>[REG_SQL].[HOME_BUILDING]</expression>
+                </dataItem>
+                <dataItem name="BUILDING_OVERRIDE">
+                    <expression>[REG_SQL].[BUILDING_OVERRIDE]</expression>
+                </dataItem>
+                <dataItem name="BUILDING_REASON">
+                    <expression>[REG_SQL].[BUILDING_REASON]</expression>
+                </dataItem>
+                <dataItem name="GRADE">
+                    <expression>[REG_SQL].[GRADE]</expression>
+                </dataItem>
+                <dataItem name="GENDER">
+                    <expression>[REG_SQL].[GENDER]</expression>
+                </dataItem>
+                <dataItem name="LANGUAGE">
+                    <expression>[REG_SQL].[LANGUAGE]</expression>
+                </dataItem>
+                <dataItem name="NATIVE_LANGUAGE">
+                    <expression>[REG_SQL].[NATIVE_LANGUAGE]</expression>
+                </dataItem>
+                <dataItem name="CALENDAR">
+                    <expression>[REG_SQL].[CALENDAR]</expression>
+                </dataItem>
+                <dataItem name="TRACK">
+                    <expression>[REG_SQL].[TRACK]</expression>
+                </dataItem>
+                <dataItem name="CURRENT_STATUS">
+                    <expression>[REG_SQL].[CURRENT_STATUS]</expression>
+                </dataItem>
+                <dataItem name="SUMMER_STATUS">
+                    <expression>[REG_SQL].[SUMMER_STATUS]</expression>
+                </dataItem>
+                <dataItem name="COUNSELOR">
+                    <expression>[REG_SQL].[COUNSELOR]</expression>
+                </dataItem>
+                <dataItem name="HOUSE_TEAM">
+                    <expression>[REG_SQL].[HOUSE_TEAM]</expression>
+                </dataItem>
+                <dataItem name="HOMEROOM_PRIMARY">
+                    <expression>[REG_SQL].[HOMEROOM_PRIMARY]</expression>
+                </dataItem>
+                <dataItem name="HOMEROOM_SECONDARY">
+                    <expression>[REG_SQL].[HOMEROOM_SECONDARY]</expression>
+                </dataItem>
+                <dataItem name="BIRTHDATE">
+                    <expression>[REG_SQL].[BIRTHDATE]</expression>
+                </dataItem>
+                <dataItem name="FAMILY_CENSUS">
+                    <expression>[REG_SQL].[FAMILY_CENSUS]</expression>
+                </dataItem>
+                <dataItem name="ALT_BUILDING">
+                    <expression>[REG_SQL].[ALT_BUILDING]</expression>
+                </dataItem>
+                <dataItem name="ALT_DISTRICT">
+                    <expression>[REG_SQL].[ALT_DISTRICT]</expression>
+                </dataItem>
+                <dataItem name="NICKNAME">
+                    <expression>[REG_SQL].[NICKNAME]</expression>
+                </dataItem>
+                <dataItem name="HOME_DISTRICT">
+                    <expression>[REG_SQL].[HOME_DISTRICT]</expression>
+                </dataItem>
+                <dataItem name="ATTENDING_DISTRICT">
+                    <expression>[REG_SQL].[ATTENDING_DISTRICT]</expression>
+                </dataItem>
+                <dataItem name="ALT_BLDG_ACCT">
+                    <expression>[REG_SQL].[ALT_BLDG_ACCT]</expression>
+                </dataItem>
+                <dataItem name="DIST_ENROLL_DATE">
+                    <expression>[REG_SQL].[DIST_ENROLL_DATE]</expression>
+                </dataItem>
+                <dataItem name="STATE_ENROLL_DATE">
+                    <expression>[REG_SQL].[STATE_ENROLL_DATE]</expression>
+                </dataItem>
+                <dataItem name="US_ENROLL_DATE">
+                    <expression>[REG_SQL].[US_ENROLL_DATE]</expression>
+                </dataItem>
+                <dataItem name="STUDENT_GUID">
+                    <expression>[REG_SQL].[STUDENT_GUID]</expression>
+                </dataItem>
+                <dataItem name="RES_COUNTY_CODE">
+                    <expression>[REG_SQL].[RES_COUNTY_CODE]</expression>
+                </dataItem>
+                <dataItem name="STATE_RES_BUILDING">
+                    <expression>[REG_SQL].[STATE_RES_BUILDING]</expression>
+                </dataItem>
+                <dataItem name="GRADE_9_DATE">
+                    <expression>[REG_SQL].[GRADE_9_DATE]</expression>
+                </dataItem>
+                <dataItem name="GENDER_IDENTITY">
+                    <expression>[REG_SQL].[GENDER_IDENTITY]</expression>
+                </dataItem>
+                <dataItem name="CHANGE_DATE_TIME">
+                    <expression>[REG_SQL].[CHANGE_DATE_TIME]</expression>
+                </dataItem>
+                <dataItem name="CHANGE_UID">
+                    <expression>[REG_SQL].[CHANGE_UID]</expression>
+                </dataItem>
+            </selection>
+        </query>
+    </queries>
+    
+    
+    <reportVariables>
+        <reportVariable type="string" name="useTbl">
+            <reportExpression>Paramvalue(&apos;table&apos;)</reportExpression>
+            <variableValues>
+                <variableValue value="REG"/>
+                <variableValue value="ATT_BOTTOM_LINE"/>
+            </variableValues>
+        </reportVariable>
+    </reportVariables>
+    
+    <modelPath>/content/folder[@name=&apos;Packages&apos;]/folder[@name=&apos;Student Management System Packages&apos;]/package[@name=&apos;eSchoolPLUS Admin - Arkansas&apos;]/model[@name=&apos;model&apos;]</modelPath>
+    
+</report>
